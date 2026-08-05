@@ -7,10 +7,14 @@ public:
     }
     
     void push(int value) {
-        if(s.empty()) s.push({value,value});
+        if(!s.empty()) {
+            int Min=min(value,s.top().second);
+        s.push(make_pair(value,Min));
+        }
         else{
-        int Min=min(value,s.top().second);
-        s.push(make_pair(value,Min));}
+            s.push({value,value});
+        }
+        
     }
     
     void pop() {
